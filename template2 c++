@@ -14,3 +14,6 @@ int main(){
     cin >> x >> y;
     cout << sum(d,y);
 }
+//here, t1 --> will be int
+//here, t2 --> will be double
+//if we made the return value t2 then it will return double
