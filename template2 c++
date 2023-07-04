@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+template<class t1, class t2>
+
+t1 sum(t1 x, t2 y){
+    return x+y;
+}
+
+int main(){
+    double x=0,y=0;
+    int d=0,f=0;
+    cin >> x >> y;
+    cout << sum(d,y);
+}
