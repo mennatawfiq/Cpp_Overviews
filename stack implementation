@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int Max_Size = 10;
+template<class t>
+class myStack{
+    t top;
+    t item[Max_Size];
+public:
+    myStack(){
+        top = -1;
+    }
+
+    void push(t element){
+        if(top >= Max_Size - 1){
+            cout << "stack is full!";
+        }else{
+            top++;
+            item[top] = element;
+        }
+    }
+
+    bool IsEmpty(){
+        return top < 0;
+    }
+
+    void pop(){
+        if(IsEmpty()){
+            cout << "stack is empty!";
+        }else{
+            top--;
+        }
+    }
+
+    void pop(t &element){
+        if(IsEmpty()){
+            cout << "stack is empty!";
+        }else{
+            element = item[top];
+            top--;
+        }
+    }
+
+    void getTop(t &stackTop){
+        if(IsEmpty()){
+            cout << "stack is empty!";
+        }else{
+            stackTop = item[top];
+        }
+    }
+
+    void printStack(){
+        cout << "[";
+        for(int i=0; i<top+1; i++){
+            cout << item[i] << " ";
+        }
+        cout << "]" << endl;
+    }
+};
+
+
+int main(){
+    myStack<char>s; //using template so that we can usethe stack for any data type 
+    s.push('a');
+    s.push('b');
+    s.push('c');
+    s.push('e');
+    s.push('g');
+    char y = '0';  //allince feature
+    s.getTop(y);
+    cout << y << endl;
+    s.printStack();
+    s.pop();
+    s.push('v');
+    s.push('x');
+    s.printStack();
+}
