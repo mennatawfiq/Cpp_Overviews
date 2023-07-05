@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+ 
 const int Max_Size = 10;
 template<class t>
 class myStack{
