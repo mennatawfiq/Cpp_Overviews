@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void add1(int n1, int n2);
+void add2(int &n1, int &n2);
+void add3(int *n1, int *n2);
+
+int main(){
+    int n1 = 3, n2 = 5;
+    add1(n1, n2);
+    cout << "the value in main after using add1 function is: " << n1 << ", " << n2 << endl;
+    add2(n1, n2);
+    cout << "the value in main after using add2 function is: " << n1 << ", " << n2 << endl;
+    add3(&n1, &n2);
+    cout << "the value in main after using add3 function is: " << n1 << ", " << n2 << endl;
+}
+
+//calling by value
+void add1(int n1, int n2){
+    n1++;
+    n2++;
+    cout << "the value from add1 function is: " << n1 << ", " << n2 << endl;
+}
+
+//calling by reference using alliance
+void add2(int &n1, int &n2){
+    n1++;
+    n2++;
+    cout << "the value from add2 function is: " << n1 << ", " << n2 << endl;
+}
+
+//calling by reference using pointers 
+void add3(int *n1, int *n2){
+    *n1 += 1;
+    *n2 += 1;
+    cout << "the value from add3 function is: " << *n1 << ", " << *n2 << endl;
+}
