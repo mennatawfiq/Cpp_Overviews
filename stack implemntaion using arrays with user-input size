@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class newStack{
+    int Size;
+    int length;
+    int *ptr;
+public:
+    newStack(int arrSize){
+        Size = arrSize;
+        length = 0;
+        ptr = new int[arrSize];
+    }
+    void push(int element){
+        if(length > Size -1){
+            cout << "stack overflow!" << endl;
+        }else{
+            ptr[length] = element;
+            length++;
+        }
+    }
+    bool isEmpty(){
+        return length == 0;
+    }
+    void pop(){
+        if(isEmpty()){
+            cout << "the stack is empty!" << endl;
+        }else{
+            length--;
+        }
+    }
+    void pop(int *last){
+        if(isEmpty()){
+            cout << "the stack is empty!" << endl;
+        }else{
+            *last = ptr[length-1];
+            length--;
+        }
+    }
+    void dispaly(){
+        if(isEmpty()){
+            cout << "the stack is empty!" << endl;
+        }else{
+            for(int i = length-1; i>=0; i--){
+                cout << ptr[i] << " ";
+            }
+        }
+    }
+};
+
+int main(){
+    int arraySize, ele;
+    cin >> arraySize;
+    newStack x(arraySize);
+    for(int i =0; i<arraySize; i++){
+        cin >> ele;
+        x.push(ele);
+    }
+    x.pop();
+    int y;
+    x.pop(&y);
+    cout << y << endl;
+    x.dispaly();
+}
