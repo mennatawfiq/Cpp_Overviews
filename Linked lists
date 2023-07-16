@@ -109,6 +109,23 @@ public:
             delete deleted;
         }
     }
+    void reverse(){
+        if(isEmpty()){
+            cout << "the list is empty!" << endl;
+        }else{
+            Node *curr = head;
+            Node *prev = NULL;
+            Node *third;
+            while(curr != NULL){
+                third = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = third;
+            }
+            head = prev;
+            delete curr,prev,third;
+        }
+    }
 };
 
 int main(){
