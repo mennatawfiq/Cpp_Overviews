@@ -12,13 +12,13 @@
 </head>
 
 <body>
-    <!-- <center>
+    <center>
         <h1>Book Store</h1>
     </center>
     <hr>
     <div class="books">
         <p class="one" lang="en">
-            this is the <em>first</em> book,<br>it talks <b>about</b> <mark><strong>love</strong></mark>, hope you like
+            this is the <em>first</em> book,<br>it talks about <mark><strong>love</strong></mark>, hope you like
             it
         </p>
         <hr>
@@ -85,7 +85,7 @@
     </table>
     <audio controls autoplay loop muted>
         <source src="c:\Users\dell\Downloads\Telegram Desktop\levelpassed.mp3" type="audio/mpeg">
-    </audio> -->
+    </audio>
     <hr>
     <form method="POST" action="">
         <fieldset>
@@ -101,7 +101,7 @@
                 minlength="7" maxlength="15">
             <br>
         </fieldset>
-        <input type="hidden" value="Save">
+        <input type="hidden" value="Save" name="hidden data">
         <br>
         <input type="reset" value="reset">
         <br>
@@ -204,6 +204,7 @@
         <p>hidden content</p>
         <p>m&m's</p>
     </details>
+    <footer>&copy; copyright 2021</footer>
 </body>
 
 </html>
@@ -257,7 +258,7 @@
     <ins></ins> inserted text to tell the reader that this text is new
     <sub></sub> to make subscript like the 2 in h2o
     <sup></sup> to make superscript like the power 2^2
-    title a global attribute to show a small text when the cursor get into the specified word
+    title is a global attribute to show a small text when the cursor get into the specified word
     <pre></pre> create a preformatted text (a text with spaces and newlines and putting it as it was put)
     <code></code> displays its contents styled in a fashion to indicate that the text is a short computer code fragment
     <ul></ul unordered list
@@ -283,8 +284,6 @@
 
     <div></div> is used to put more than one block in it like (h1 + p + h2...) to edit it with css as one block
 
-    &lt;p&gt;      to write the <p>
-
     semantic elements
 
     <figure>
@@ -300,7 +299,7 @@
     <audio autoplay></audio> to make the audio play whenever the page is opened
     <audio loop></audio> to make the audio play for infinite loop until you stop it
     <audio muted></audio> to make the audio muted until you change it
-    <audio preload=""></audio> to ask the user whether to download the audio or not and this attribute negatives the autoplay attribute
+    <audio preload=""></audio> to ask the user whether to download the audio or not 
         it can take three attributes. 
             auto: the audio will load when the page is opened.(default)
             none: the audio will not be preloaded.
