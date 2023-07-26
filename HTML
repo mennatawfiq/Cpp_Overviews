@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is my first page</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="this is description for my first page" />
+    <style></style>
+    <script></script>
+    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="30409.png">
+</head>
+
+<body>
+    <!-- <center>
+        <h1>Book Store</h1>
+    </center>
+    <hr>
+    <div class="books">
+        <p class="one" lang="en">
+            this is the <em>first</em> book,<br>it talks <b>about</b> <mark><strong>love</strong></mark>, hope you like
+            it
+        </p>
+        <hr>
+        <p class="two">
+            this is the <em>second</em> book,<br />it talks about <strong>stress</strong>, nice reading
+        </p>
+        <hr>
+        <p>
+            The <code>push()</code> method adds one or more elements to the end of an array and returns the new
+            length of the array.
+        </p>
+        <hr>
+    </div>
+    <p> &lt;p&gt;</p>
+    this is &nbsp; &nbsp; my page
+    <h3><a href="https://www.google.com/" target="_blank" title="Go to Google">Google</a></h3>
+    <a href="#menna" title="go to menna's paragraph">menna</a>
+    <p id="menna">Lorem</p>
+    <a href="mailto:twmnh195@gmail.com">Contact me</a>
+    <img src="C:\Users\dell\Desktop\My project\30409.png" alt="Logo image" width="" height="">
+    <h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>
+                JS
+                <ul>
+                    <li>Angular</li>
+                    <li>React</li>
+                </ul>
+            </li>
+        </ul>
+        <ol>
+            <li>Name</li>
+            <li>Address</li>
+        </ol>
+        <dl>
+            <dt>HTML</dt>
+            <dd>the first skill</dd>
+            <dt>CSS</dt>
+            <dd>the second skill</dd>
+        </dl>
+    </h3>
+    <table border="1" style="border-collapse: collapse;">
+        <caption>Students marks</caption>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>Menna</td>
+            <td>Tawfiq</td>
+            <td rowspan="2">100</td>
+        </tr>
+        <tr>
+            <td>Mostafa</td>
+            <td>Ismail</td>
+        </tr>
+        <tr>
+            <td colspan="2">Total</td>
+            <td>200</td>
+        </tr>
+    </table>
+    <audio controls autoplay loop muted>
+        <source src="c:\Users\dell\Downloads\Telegram Desktop\levelpassed.mp3" type="audio/mpeg">
+    </audio> -->
+    <hr>
+    <form method="POST" action="">
+        <fieldset>
+            <legend>info</legend>
+            <label>Username: </label>
+            <input type="text" required placeholder="enter your username" name="user">
+            <br>
+            <label>Password</label>
+            <input type="password" required placeholder="write a complex password" name="pass">
+            <br>
+            <label>Email</label>
+            <input type="email" required placeholder="write your email here" value="m&m@gmail.com" name="mail" autofocus
+                minlength="7" maxlength="15">
+            <br>
+        </fieldset>
+        <input type="hidden" value="Save">
+        <br>
+        <input type="reset" value="reset">
+        <br>
+        <label>color</label>
+        <input type="color" name="Color">
+        <br>
+        <label>Range</label>
+        <input type="range" name="range" min="0" max="100" step="20" value="0">
+        <br>
+        <label>Number</label>
+        <input type="number" name="number" min="0" max="100" step="10">
+        <br>
+        <input id="windows" type="radio" name="os" value="windows">
+        <label for="windows">windows</label>
+        <br>
+        <input id="linux" type="radio" name="os" value="linux">
+        <label for="linux">linux</label>
+        <br>
+        <input id="os" type="radio" name="os" value="mac" checked>
+        <label for="os">mac</label>
+        <hr>
+        <br>
+        <input id="windows1" type="checkbox" name="os" value="windows">
+        <label for="windows1">windows</label>
+        <br>
+        <input id="linux1" type="checkbox" name="os" value="linux" checked>
+        <label for="linux1">linux</label>
+        <br>
+        <input id="os1" type="checkbox" name="os" value="mac">
+        <label for="os1">mac</label>
+        <hr> <br>
+        <label for="book">Choose Book</label>
+        <select id="book" name="books" multiple>
+            <optgroup label="Romantic books">
+                <option value="1">Book1</option>
+                <option value="2" selected>Book2</option>
+                <option value="3">Book3</option>
+            </optgroup>
+            <optgroup label="Romantic books">
+                <option value="4">Book4</option>
+                <option value="5">Book5</option>
+                <option value="6">Book6</option>
+            </optgroup>
+        </select>
+        <hr>
+        <input type="file" name="file">
+        <hr>
+        <label>Search</label>
+        <input type="search" name="search">
+        <hr>
+        <label>URL</label>
+        <input type="url" name="link">
+        <hr>
+        <label>Date</label>
+        <input type="date">
+        <hr>
+        <label>Date</label>
+        <input type="month">
+        <label>Date</label>
+        <input type="date" value="1982-10-25">
+        <hr>
+        <label>Month</label>
+        <input type="month" value="1982-10">
+        <hr>
+        <textarea name="text" cols="10" rows="5" placeholder="test text"></textarea>
+        <hr>
+        <br>
+        <label for="country-choice">choose a country: </label>
+        <input list="country-list" name="country-choice" id="country-choice">
+        <datalist id="country-list">
+            <option value="Egypt">Egypt
+            <option value="KSA">KSA
+            <option value="USA">USA
+            <option value="UAE">UAE
+        </datalist>
+        <br>
+        <input type="submit" name="sub">
+        <br>
+    </form>
+    <hr>
+    <hr>
+    <hr>
+    <q>this is a wise quote</q>
+    <blockquote>this is a wise block</blockquote>
+    <button>click</button>
+    <br>
+    https://www.youtube.com/<wbr>?v=AzjtVtxoBLc&list=<wbr>PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji&index=33
+    <br>
+    <p>
+        2 <bdi>السلام</bdi>welcome
+    </p>
+    <hr>
+    <iframe src="https://elzero.org/" width="400" height="200"></iframe>
+    <hr>
+    <div role="checkbox" aria-checked="true" aria-labelledby="plan1" tabindex="0">Plan one</div>
+    <div tabindex="0">Plan two</div>
+    <div tabindex="0">Plan three</div>
+    <details> <!--  drop-down list -->
+        <summary>class</summary>
+        <p>hidden content</p>
+        <p>m&m's</p>
+    </details>
+</body>
+
+</html>
+
+<!-- ------------------------------------------------------------- -->
+<!-- 
+    <meta charset = "UTF-8"/>  the system of the standared unicode transformation format
+    <meta name="author" content=""/> to write the name of the web page writer
+    <meta name = "copyright" content = ""/>
+    <meta name = "description" content = "this is"/> the text that appears in the web prowser under the title
+    <meta name="viewport" content="width=device-width, initial-scale=1">making the Web page fits on desktop and mobile
+-->
+
+<!-- 
+    headings -> for addresses
+    paragraphs -> for texts with spaces and multiple lines
+-->
+
+<!-- paragraph is a block element -->
+<!--
+    <a href=""></a> is an inline element 
+
+    target="_blank" attribute in <a> makes the link opens in a new window 
+    download: attribute in <a> to download the photo in the link
+
+    <a href="#menna" title="go to menna's paragraph">menna</a>
+    <p id="menna">Lorem</p>
+
+    <a href="mailto:   "></a> adding an email to the page
+    <a href="tel:">Call us</a> adding a telephone number
+-->
+
+<!-- 
+    <link rel="shortcut icon" href="/images/favicon.ico"> 
+    putting an icon to the website
+-->
+
+<!-- 
+    <b><b/> bold
+    <strong></strong> important text
+    <i></i> italic
+    <em></em> emphasized
+    <center></center>
+    <br> orrrrrr </br>  making new line inside a paragraph
+    &nbsp; adding new space inside a text
+    <mark></mark> highliting a word
+    <u></u> underlined text
+    <small></small> smaller text
+    <big></big> bigger text
+    <del></del> deleting a text 
+    <ins></ins> inserted text to tell the reader that this text is new
+    <sub></sub> to make subscript like the 2 in h2o
+    <sup></sup> to make superscript like the power 2^2
+    title a global attribute to show a small text when the cursor get into the specified word
+    <pre></pre> create a preformatted text (a text with spaces and newlines and putting it as it was put)
+    <code></code> displays its contents styled in a fashion to indicate that the text is a short computer code fragment
+    <ul></ul unordered list
+        <li></li> list item
+    <ol></ol> ordered list 1 2 3
+        reversed -> making the order descending  3 2 1
+        start="100" -> start from position
+        type="a" -> type of ordering a b c
+        <li> of <ol>   :     <li value="50">
+    <dl></dl> description list
+    <dt></dt> term
+    <dd></dd> term description
+
+    <table border="1" style="border-collapse: collapse;"></table>  making a table
+    <caption></caption>  setting a title to the table
+    <tr></tr>  making a head row in the table
+    <th></th>  making the key words of the table bold to destinguish it
+    <td></td>  making a new row in the table
+    <td rowspan=" "></td>  making a cell take more than one row
+    <td colspan=" "></td>  making a cell take more than one column
+
+    <span> </span> taking a word of a paragraph to be able to edit it with css
+
+    <div></div> is used to put more than one block in it like (h1 + p + h2...) to edit it with css as one block
+
+    &lt;p&gt;      to write the <p>
+
+    semantic elements
+
+    <figure>
+        <img src="" alt="" loading="lazy">
+        ####the image will not load until the user scrolls near the image location. If the image is at the bottom of the page and the user never scrolls down on the website, the image will never load.
+        <figcaption></figcaption>
+    </figure>
+
+    <audio src=""></audio> 
+    <audio><source></audio>   it's prefared to use this way as you can add more than one source with different extentions of the same audio
+    <source src="" type="">   src for the audio source and type for the MIME type of the file
+    <audio controls></audio> to put controls to the audio
+    <audio autoplay></audio> to make the audio play whenever the page is opened
+    <audio loop></audio> to make the audio play for infinite loop until you stop it
+    <audio muted></audio> to make the audio muted until you change it
+    <audio preload=""></audio> to ask the user whether to download the audio or not and this attribute negatives the autoplay attribute
+        it can take three attributes. 
+            auto: the audio will load when the page is opened.(default)
+            none: the audio will not be preloaded.
+            metadata: the browser only preload the metadata of the audio file (duration, author, etc.),not the entire audio content.
+
+    <video></video> video have the same attributes of the audio and more other attributes
+    <video width="" height=""></video>
+    <video poster=""></video> adding a photo to appear until the video loads
+    <track src="file.vtt" kind="subtitles" srclang="english" label="English"> to put subtitles and other like things to the video
+
+    <form>
+        <label></label>
+        <input type="" required placeholder="" value="" name="" readonly disabled autofocus minlength="" maxlength="">
+        type: text, password, submit, reset, email, range, tel, number, hidden, reset, color, radio, checkbox.......
+        required: restricts the user to fill this filed
+        placeholder: putting a text as a hint in the input field
+        value: putting a default value to the user
+        name: making the data be put in its suitable place in backend
+        hidden "type": making a field hidden with default value in it to send it with your data to the backend (3ade)
+        readonly: making the default value of the field unchangeable, and the data of the field is submited
+        disabled: making the default value of the field unchangeable, but the data isn't submited 
+        autofocus: when the page is opened the cursor will be in the field that is autofocused
+        minlength: specifing the minimum number of characters in the field
+        maxlength: specifing the maximum number of characters in the field
+        checked: a specific attribute for the radio type to make a default checked box
+    </form>
+    <form action="link" novalidate target="_blank"></form>  action attribute sends the inputs to the backend file which will deal with this information
+    novalidate: enables all the required inputs and make the form able to be sent without filling those inputs
+    target: makes the form opens in a new page after sending the data
+    <form method=""></form> method can have two values : GET, POST
+        GET: makes the data "query string" appear in the url (not a good thing of course) and this is the default value
+        POST: doesn't make the data appear in the url
+                    checkbox is the same as radio
+
+    THE DIFFERENCE BETWEEN "NAME" & "VALUE" ATTRIBUTES IN RADIO BOX:
+    the name attribute identifies the form field when submitted, and the value attribute sets the initial value 
+    that will be sent to the server if the corresponding input element is selected or filled by the user.
+
+    difference between datalist and search is that we can search in the elements of the datalist
+
+    <iframe src="" width="" height=""></iframe> to put another web page in your page
+
+    Id vs class in html:
+        Id is unique and an element can have only one id
+        Class can be used for multiple elements and an element can have more than one class
+-->
