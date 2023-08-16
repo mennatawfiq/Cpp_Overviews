@@ -1,4 +1,1 @@
-# IcyTower
-## A new edition of the famous game ICYTOWER.
-
-### If anyone wants to try this, please check the pictures pathes to be appropriate for your PC first.
+I've created this repository to save some notes for myself. If it's helpful to you, feel free to take advantage of it...
