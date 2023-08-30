@@ -22,8 +22,12 @@ class derived : public base{
     
 int main()
 {
-    base *b = new base;
+    base *b = new derived;
     derived *d = dynamic_cast<derived*>(b); //from base to derived
     //any dynamic process ===== dealing with pointers 
-    return 0;
+    if(d == NULL){
+        cout <<"null";
+    }else{
+        cout <<"success";
+    }
 }
