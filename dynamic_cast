@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+//We use dynamic casting on polymorphic objects
+//Dynamic casting is applied for safe downcasting (base => derived). One small note is that the base class must 
+//have a virtual function.
+//If an illegal pointer cast is attempted, then the result is a null pointer.
+
+class base{
+    public:
+        virtual void print(){
+            
+        }
+};
+class derived : public base{
+    public:
+        void print(){
+            
+        }
+};
+    
+int main()
+{
+    base *b = new base;
+    derived *d = dynamic_cast<derived*>(b); //from base to derived
+    //any dynamic process ===== dealing with pointers 
+    return 0;
+}
