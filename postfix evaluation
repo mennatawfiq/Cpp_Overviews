@@ -1,0 +1,52 @@
+#include <iostream>
+#include <stack>
+#include <string>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+double evaluate(double a, double b, char c);
+int main()
+{
+    stack<double> s;
+    string st;
+    getline(cin, st);
+    double eval = 0;
+    for (int i = 0; i < st.size(); i++)
+    {
+        if (st[i] >= '0' && st[i] <= '9')
+        {
+            s.push(double(st[i] - '0'));
+        }
+        else
+        {
+            if (s.size() < 2)
+            {
+                cout << "Invalid expression" << endl;
+                return 1;
+            }
+            double a = s.top();
+            s.pop();
+            double b = s.top();
+            s.pop();
+            char c = st[i];
+            eval = evaluate(a, b, c);
+            s.push(eval);
+        }
+    }
+    cout << s.top();
+}
+
+double evaluate(double a, double b, char c)
+{
+    if (c == '+')
+        return a + b;
+    else if (c == '-')
+        return a - b;
+    else if (c == '*')
+        return a * b;
+    else if (c == '/')
+        return a / b;
+    else if (c == '^')
+        return pow(b, a);
+    return 1;
+}
