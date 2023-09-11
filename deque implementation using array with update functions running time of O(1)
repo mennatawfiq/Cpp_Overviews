@@ -1,0 +1,121 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+/*
+ *this implementation is based on making giving the array an extra size so that we can add from front or back without needing to shifting the elements...
+ *We also check if the size has reached the determined size and once it reaches it, the deque won't add any element until the user remove some elements.
+ *TBH the code doesn't cover some constraints, it may be covered later.
+ */
+
+class dequeArray
+{
+    int *arr;
+    int capacity;            // array actual size
+    int size;                // actual inserted elements
+    int middle, back, front; // indecies
+public:
+    dequeArray(int n)
+    {
+        capacity = 2 * n - 1;    // 5
+        middle = n - 1;          // 2
+        front = middle - 1;      // 1
+        back = middle + 1;       // 3
+        arr = new int[capacity]; // 0 => 4
+        size = 0;
+    }
+    bool isEmpty()
+    {
+        return size == 0;
+    }
+    void insertFront(int data)
+    {
+        if (size == (capacity / 2) + 1)
+        {
+            cout << "The deque is full. Remove some elements and try adding again..." << endl;
+            return;
+        }
+        if (isEmpty())
+        {
+            arr[middle] = data;
+            size++;
+        }
+        else
+        {
+            arr[front] = data;
+            if (front)
+            { // checking if the front hasn't reached the left end of the array yet
+                size++;
+                front--;
+            }
+            else
+            {
+                cout << "You have reached the end of the end of the deque. Remove some elements and try adding again..." << endl;
+            }
+        }
+    }
+    void insertBack(int data) 
+    {
+        if (size == (capacity / 2) + 1) 
+        {
+            cout << "The deque is full. Remove some elements and try adding again..." << endl;
+            return;
+        }
+        if (isEmpty())
+        {
+            arr[middle] = data; 
+            size++;            
+        }
+        else
+        {
+            arr[back] = data; 
+            if (back < capacity)
+            { // checking if the back hasn't reached the right end of the array yet
+                size++;
+                back++; 
+            }
+            else
+            {
+                cout << "You have reached the end of the deque. Remove some elements and try adding again..." << endl;
+            }
+        }
+    }
+    void removeFront()
+    {
+        if (isEmpty())
+        {
+            cout << "The deque is still empty..." << endl;
+        }
+        else
+        {
+            front++;
+            size--;
+        }
+    }
+    void removeBack()
+    {
+        if (isEmpty())
+        {
+            cout << "The deque is still empty..." << endl;
+        }
+        else
+        {
+            back--;
+            size--;
+        }
+    }
+    ~dequeArray()
+    {
+        delete[] arr;
+    }
+};
+int main()
+{
+    int n = 3;
+    dequeArray da(n);
+    da.insertBack(2);
+    da.insertBack(3);
+    da.insertBack(4);
+    da.insertBack(5);
+}
