@@ -1,0 +1,144 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+class IndexOutOfBounds
+{
+    string errorMsg;
+
+public:
+    IndexOutOfBounds(const string &err)
+    {
+        errorMsg = err;
+    }
+    string getMessage() const
+    {
+        return errorMsg;
+    }
+};
+
+class ArrayVector
+{
+    int capacity;
+    int n;
+    int *A;
+
+public:
+    ArrayVector() : capacity(0), n(0), A(NULL)
+    {
+    }
+    ArrayVector(ArrayVector &a)
+    {
+        capacity = a.capacity;
+        n = a.n;
+        A = new int[capacity];
+        for (int i = 0; i < n; i++)
+        {
+            A[i] = a[i];
+        }
+    }
+    int size() const
+    {
+        return n;
+    }
+    bool isEmpty() const
+    {
+        return n == 0;
+    }
+    int &operator[](int i)
+    {
+        return A[i];
+    }
+    int &at(int i)
+    {
+        if (i < 0 || i > n)
+            throw IndexOutOfBounds("this index is out of bounds");
+        return A[i];
+    }
+    void erase(int i)
+    {
+        for (int j = i; j < n - 1; j++)
+        {
+            A[j] = A[j + 1];
+        }
+        n--;
+    }
+    void reserve(int N)
+    {
+        if (N > capacity)
+        {
+            int *B = new int[N];
+            for (int i = 0; i < n; i++)
+            {
+                B[i] = A[i];
+            }
+            if (A != NULL)
+                delete[] A;
+            A = B;
+            capacity = N;
+        }
+        else
+        {
+            return;
+        }
+    }
+    void insert(int i, int e)
+    {
+        if (n >= capacity)
+            reserve(max(1, 2 * capacity));
+        for (int j = n; j > i; j--)
+        {
+            A[j] = A[j - 1];
+        }
+        A[i] = e;
+        n++;
+    }
+    ArrayVector &operator=(ArrayVector &a)
+    {
+        if (this != &a)
+        {
+            if (!isEmpty())
+            {
+                delete[] A;
+            }
+            reserve(a.capacity);
+            n = a.n;
+            for (int i = 0; i < n; i++)
+            {
+                A[i] = a[i];
+            }
+        }
+        return *this;
+    }
+    ~ArrayVector()
+    {
+        delete[] A;
+    }
+};
+
+int main()
+{
+    ArrayVector a;  // testing the empty constructor
+    a.insert(0, 1); // testing the insert function many times
+    a.insert(0, 2);
+    a.insert(0, 3);
+    a.insert(0, 4);
+    a.insert(0, 5);
+    cout << a.size() << endl; // testing the size function
+    ArrayVector b = a;        // testing the copy constructor
+    cout << b.at(2) << endl;  // testing the at function
+    try                       // testing the exception
+    {
+        cout << b.at(6);
+    }
+    catch (IndexOutOfBounds e)
+    {
+        cout << e.getMessage() << endl;
+    }
+    a.erase(2);   // testing the erase function
+    cout << a[2]; // testing the [] overloading function
+    ArrayVector c;
+    c = a; // testing the = overloading function
+    cout << c[1];
+}
