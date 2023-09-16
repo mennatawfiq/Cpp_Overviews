@@ -2,6 +2,8 @@
 #include <stdio.h>
 using namespace std;
 
+//this class hasn't been tested yet due to laziness :'))))))))
+
 class Node
 {
 public:
@@ -42,14 +44,26 @@ public:
         return this->n != p.n;
     }
     Iterator &operator++()
-    {
+    { //++it
         n = n->next;
         return *this;
     }
     Iterator &operator--()
-    {
+    { //--it
         n = n->prev;
         return *this;
+    }
+    Iterator &operator++(int)
+    { //it++
+        Iterator *i = this;
+        n = n->next;
+        return *i;
+    }
+    Iterator &operator--(int)
+    { //it--
+        Iterator *i = this;
+        n = n->prev;
+        return *i;
     }
 };
 
