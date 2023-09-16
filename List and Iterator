@@ -1,0 +1,162 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node *prev;
+    Node(int data = 0)
+    {
+        this->data = data;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+class NodeList;
+
+class Iterator
+{
+private:
+    Node *n;
+    Iterator(Node *m)
+    {
+        n = m;
+    }
+
+public:
+    friend class NodeList;
+    int &operator*()
+    {
+        return n->data;
+    }
+    bool operator==(const Iterator &p) const
+    {
+        return this->n == p.n;
+    }
+    bool operator!=(const Iterator &p) const
+    {
+        return this->n != p.n;
+    }
+    Iterator &operator++()
+    {
+        n = n->next;
+        return *this;
+    }
+    Iterator &operator--()
+    {
+        n = n->prev;
+        return *this;
+    }
+};
+
+class NodeList
+{
+private:
+    int n; // number of elements
+    Node *header, *trailer;
+
+public:
+    NodeList()
+    {
+        n = 0;
+        header = new Node;
+        trailer = new Node;
+        header->next = trailer;
+        trailer->prev = header;
+    }
+    int size() const
+    {
+        return n;
+    }
+    bool empty() const
+    {
+        return n == 0;
+    }
+    Iterator begin() const
+    {
+        return Iterator(header->next);
+    }
+    Iterator end() const
+    {
+        return Iterator(trailer);
+    }
+    void insert(const Iterator &it, const int &e)
+    { // insert e before it
+        Node *node = new Node(e);
+        node->next = it.n;
+        node->prev = it.n->prev;
+        it.n->prev->next = node;
+        it.n->prev = node;
+        n++;
+    }
+    void insertFront(const int &e)
+    {
+        insert(begin(), e);
+    }
+    void insertBack(const int &e)
+    {
+        insert(end(), e);
+    }
+    void erase(const Iterator &it)
+    {
+        if (empty())
+        {
+            return;
+        }
+        it.n->next->prev = it.n->prev;
+        it.n->prev->next = it.n->next;
+        delete it.n;
+        n--;
+    }
+    void eraseFront()
+    {
+        erase(begin());
+    }
+    void eraseBack()
+    {
+        erase(--end());
+    }
+    NodeList(const NodeList &nl)
+    {
+        Iterator it = nl.begin();
+        while (it != nl.end())
+        {
+            this->insertBack(it.n->data);
+            ++it;
+        }
+    }
+    NodeList &operator=(const NodeList &nl)
+    {
+        if (this != &nl)
+        {
+            // if the destination list already has elements then those elements must be deleted first to avoid memory leaks
+            while (!empty())
+            {
+                eraseFront();
+            }
+            Iterator it = nl.begin();
+            while (it != nl.end())
+            {
+                this->insertBack(it.n->data);
+                ++it;
+            }
+        }
+        return *this;
+    }
+    ~NodeList()
+    {
+        while (!empty())
+        {
+            eraseFront();
+        }
+    }
+};
+
+
+int main()
+{
+}
