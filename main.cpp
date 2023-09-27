@@ -2,24 +2,11 @@
 #include <string>
 using namespace std;
 
-class myStack;
-
-class stackNode
-{
-    char data;
-    stackNode *next;
-    stackNode(char data = '0')
-    {
-        this->data = data;
-        next = NULL;
-    }
-    friend class myStack;
-};
-
+template <typename t>
 class myStack
 { // don't forget to check for the access modifiers
 public:
-    stackNode *_top;
+    t *_top;
     myStack()
     {
         _top = NULL;
@@ -28,13 +15,13 @@ public:
     {
         return _top == NULL;
     }
-    stackNode *top() const
+    t *top() const
     {
         return _top;
     }
     void push(char data)
     {
-        stackNode *node = new stackNode(data);
+        t *node = new t(data);
         if (!isEmpty())
         {
             node->next = _top;
@@ -43,15 +30,29 @@ public:
     }
     void pop()
     {
-        stackNode *del = _top;
+        t *del = _top;
         _top = _top->next;
         delete del;
     }
 };
 
+class stackNode
+{
+private:
+    char data;
+    stackNode *next;
+    stackNode(char data = '0')
+    {
+        this->data = data;
+        next = NULL;
+    }
+    template <typename t>
+    friend class myStack;
+};
+
 bool isBalanced(const string &s)
 {
-    myStack st;
+    myStack<stackNode> st;
     for (int i = 0; i < s.length(); i++)
     {
         if (s[i] == '(')
@@ -73,8 +74,11 @@ bool isBalanced(const string &s)
     return st.isEmpty();
 }
 
+void init();
+
 int main()
 {
+    init();
     return 0;
 }
 
@@ -92,7 +96,7 @@ void init()
             throw "The exepression is not valid to evaluate!";
         }
     }
-    catch (const char &ex)
+    catch (const char *ex)
     {
         cout << ex << endl;
     }
