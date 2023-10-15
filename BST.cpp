@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#include <queue>
 using namespace std;
 
 class Node
@@ -178,6 +178,18 @@ public:
         else
             cout << "the item you're trying to delete doesn't exist yet" << endl;
     }
+    void BFS(){
+        if(root == NULL) return;
+        queue<Node*> q;
+        q.push(root);
+        while(!q.empty()){
+            Node *node = q.front();
+            cout << node->data << "  ";
+            if(node->left != NULL) q.push(node->left);
+            if(node->right != NULL) q.push(node->right);
+            q.pop();
+        }
+    }
 };
 
 int main()
@@ -203,4 +215,11 @@ int main()
     cout << bst.find_max() << endl;
     bst.delete_item(40);
     bst.pre_order(bst.tree_root());
+    cout << endl << endl;
+    bst.BFS(); //50  45  52  30  49  51  60  46
 }
+/*                  50
+            45              52
+       30        49     51        60
+              46
+*/
