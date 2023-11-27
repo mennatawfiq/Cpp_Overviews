@@ -2,89 +2,118 @@
 #include <string>
 using namespace std;
 
-class Node{
+class Node
+{
 public:
     int item;
     Node *next;
     Node *prev;
-    Node(){
+    Node()
+    {
         item = 0;
         next = NULL;
         prev = NULL;
     }
 };
 
-class linkedList{
+class linkedList
+{
 public:
     Node *first;
     Node *last;
-    linkedList(){
+    linkedList()
+    {
         first = NULL;
         last = NULL;
     }
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return first == NULL;
     }
-    void destroy(){
+    void destroy()
+    {
         Node *temp;
-        while(first != NULL){
+        while (first != NULL)
+        {
             temp = first;
             first = first->next;
             delete temp;
         }
         last = NULL;
     }
-    int count(){
+    int count()
+    {
         int counter = 0;
-        if(isEmpty()){
-        }else{
+        if (isEmpty())
+        {
+        }
+        else
+        {
             Node *temp = first;
-            while(temp != NULL){
+            while (temp != NULL)
+            {
                 counter++;
                 temp = temp->next;
             }
         }
         return counter;
     }
-    void insertFirst(int value){
+    void insertFirst(int value)
+    {
         Node *newNode = new Node;
         newNode->item = value;
-        if(isEmpty()){
+        if (isEmpty())
+        {
             first = newNode;
             last = newNode;
-        }else{
+        }
+        else
+        {
             first->prev = newNode;
             newNode->next = first;
             first = newNode;
         }
     }
-    void insertLast(int value){
+    void insertLast(int value)
+    {
         Node *newNode = new Node;
         newNode->item = value;
-        if(isEmpty()){
+        if (isEmpty())
+        {
             first = newNode;
             last = newNode;
-        }else{
+        }
+        else
+        {
             last->next = newNode;
             newNode->prev = last;
             last = newNode;
         }
     }
-    void insertAt(int index, int value){
-        if(index < 0 || index > count()){
+    void insertAt(int index, int value)
+    {
+        if (index < 0 || index > count())
+        {
             cout << "out of range...!" << endl;
         }
-        else{
-            if(index == 0){
+        else
+        {
+            if (index == 0)
+            {
                 insertFirst(value);
-            }else if(index == count()){
+            }
+            else if (index == count())
+            {
                 insertLast(value);
-            }else{
+            }
+            else
+            {
                 Node *newNode = new Node;
-                newNode->item = value; 
+                newNode->item = value;
                 Node *temp = first;
                 index--;
-                while(index--){
+                while (index--)
+                {
                     temp = temp->next;
                 }
                 Node *ins = temp->next;
@@ -95,14 +124,21 @@ public:
             }
         }
     }
-    void removeFirst(){
-        if(isEmpty()){
+    void removeFirst()
+    {
+        if (isEmpty())
+        {
             cout << "the list is empty!" << endl;
-        }else{
-            if(count() == 1){
+        }
+        else
+        {
+            if (count() == 1)
+            {
                 delete first;
                 first = last = NULL;
-            }else{
+            }
+            else
+            {
                 Node *del = first;
                 first = first->next;
                 first->prev = NULL;
@@ -110,36 +146,53 @@ public:
             }
         }
     }
-    void removeLast(){
-        if(isEmpty()){
+    void removeLast()
+    {
+        if (isEmpty())
+        {
             cout << "the list is empty!" << endl;
-        }else{
-            if(count() == 1){
+        }
+        else
+        {
+            if (count() == 1)
+            {
                 delete last;
                 first = last = NULL;
-            }else{
+            }
+            else
+            {
                 Node *del = last;
                 last = last->prev;
-                if(last != NULL) {
+                if (last != NULL)
+                {
                     last->next = NULL;
                 }
                 delete del;
             }
         }
     }
-    void removeNthNode(int index){
-        if(index < 0 || index > count()){
+    void removeNthNode(int index)
+    {
+        if (index < 0 || index > count())
+        {
             cout << "out of range...!" << endl;
         }
-        else{
-            if(index == 0){
+        else
+        {
+            if (index == 0)
+            {
                 removeFirst();
-            }else if(index == count()){
+            }
+            else if (index == count())
+            {
                 removeLast();
-            }else{
+            }
+            else
+            {
                 index--;
                 Node *temp = first;
-                while(index--){
+                while (index--)
+                {
                     temp = temp->next;
                 }
                 Node *del = temp->next;
@@ -149,41 +202,57 @@ public:
             }
         }
     }
-    int search(int value){
+    int search(int value)
+    {
         int index = 0;
-        if(isEmpty()){
+        if (isEmpty())
+        {
             index = -1;
-        }else{
+        }
+        else
+        {
             Node *temp = first;
-            while(temp->item != value){
+            while (temp->item != value)
+            {
                 temp = temp->next;
                 index++;
             }
         }
         return index;
     }
-    void remove(int value){
+    void remove(int value)
+    {
         int index = search(value);
         removeNthNode(index);
     }
-    void display(){
-        if(isEmpty()){
+    void display()
+    {
+        if (isEmpty())
+        {
             cout << "the list is already empty" << endl;
-        }else{
+        }
+        else
+        {
             Node *temp = first;
-            while(temp != NULL){
+            while (temp != NULL)
+            {
                 cout << temp->item << " ";
                 temp = temp->next;
             }
             cout << endl;
         }
     }
-    void reverseDisplay(){
-        if(isEmpty()){
+    void reverseDisplay()
+    {
+        if (isEmpty())
+        {
             cout << "the list is already empty" << endl;
-        }else{
+        }
+        else
+        {
             Node *temp = last;
-            while(temp != NULL){
+            while (temp != NULL)
+            {
                 cout << temp->item << " ";
                 temp = temp->prev;
             }
@@ -192,11 +261,12 @@ public:
     }
 };
 
-int main(){
+int main()
+{
     linkedList list1;
     list1.insertFirst(1);
     list1.insertLast(5);
-    list1.insertAt(1,3);
+    list1.insertAt(1, 3);
     list1.insertFirst(0);
     list1.removeNthNode(1);
     list1.removeFirst();
